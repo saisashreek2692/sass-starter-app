@@ -23,7 +23,7 @@ function page() {
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [showPassword, setShowPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const router = useRouter();
 
@@ -46,7 +46,7 @@ function page() {
 
       if (result.status === "complete") {
         await setActive({ session: result.createdSessionId });
-        router.push("/dashboard")
+        router.push("/dashboard");
       } else {
         console.log(JSON.stringify(result, null, 2));
       }
